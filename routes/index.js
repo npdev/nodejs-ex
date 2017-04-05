@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
-let path = require('path');
-//const model = require('/models/model');
-const root = path.join(__dirname, '/../public');
+var path = require('path');
+//var model = require('/models/model');
+var root = path.join(__dirname, '/../public');
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  const path = root + '/data/articles.json';
+  var path = root + '/data/articles.json';
   getArticles = () => {
     return new Promise(function (resolve) {
       fs.readFile(path, function (err, data) {

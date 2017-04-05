@@ -1,8 +1,8 @@
 //  OpenShift sample Node application
-const express = require('express'),
+var express = require('express'),
         path = require('path');
-const app = express();
-const port = 3000, ip = '127.0.0.1';
+var app = express();
+var port = 3000, ip = '127.0.0.1';
 
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const index = require('./routes/index');
+var index = require('./routes/index');
 app.use('/', index);
 
 // error handling
