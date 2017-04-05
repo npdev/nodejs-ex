@@ -2,7 +2,8 @@
 var express = require('express'),
         path = require('path');
 var app = express();
-var port = 3000, ip = '127.0.0.1';
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
