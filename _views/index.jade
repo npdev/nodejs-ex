@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .content
+    if articles
+      each item in articles
+        .article
+          .name= item.name
+          .preview= item.preview
+          .text= item.text

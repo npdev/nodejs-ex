@@ -1,0 +1,15 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+      .container.with-content
+        header Welcome!
+        .content
+          aside.left Menu
+          main.with-content
+            for item in articles
+              article= item.preview
+          aside.right Menu
+        footer Copyright
