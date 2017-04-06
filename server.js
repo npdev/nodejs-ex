@@ -2,14 +2,15 @@
 var express = require('express'),
         morgan = require('morgan'),
         path = require('path');
+        local = require('./local');
 var app = express();
 
 Object.assign = require('object-assign');
 
 app.use(morgan('combined'));
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-        ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+var port = local.port || process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+        ip = local.ip || process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
