@@ -1,6 +1,7 @@
 //  OpenShift sample Node application
 var express = require('express'),
         morgan = require('morgan'),
+        mongoose = require('mongoose'),
         path = require('path');
 var app = express();
 
@@ -9,8 +10,10 @@ Object.assign = require('object-assign');
 app.use(morgan('combined'));
 //OPENSHIFT_NODEJS_PORT == 8080
 //OPENSHIFT_NODEJS_IP == 0.0.0.0
+//MONGO_URL='mongodb://admin:secret@172.30.91.84:27017/blog'
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var mongoURL = process.env.MONGO_URL || 'mongodb://127.0.0.1/blog';
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
 app.use(require('node-sass-middleware')({
@@ -25,6 +28,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, 'public')));
+// Use native Node promises
+mongoose.Promise = global.Promise;
+// connect to MongoDB
+mongoose.connect(mongoURL)
+  .then(() =>  console.log('connection succesful: ' + mongoURL))
+  .catch((err) => console.error(err));
 
 var index = require('./routes/index');
 app.use('/', index);
