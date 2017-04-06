@@ -2,6 +2,7 @@
 var express = require('express'),
         morgan = require('morgan'),
         mongoose = require('mongoose'),
+        bodyParser = require('body-parser'),
         path = require('path');
 var app = express();
 
@@ -32,12 +33,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 mongoose.Promise = global.Promise;
 // connect to MongoDB
 mongoose.connect(mongoURL)
-  .then(() =>  console.log('connection succesful: ' + mongoURL))
-  .catch((err) => console.error(err));
+        .then(() => console.log('connection succesful: ' + mongoURL))
+        .catch((err) => console.error(err));
 
-var index = require('./routes/index');
-app.use('/', index);
-//app.use(require('./controllers'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+//var index = require('./routes/index');
+//app.use('/', index);
+app.use(require('./controllers'));
 // error handling
 app.use(function (err, req, res, next) {
   console.error(err.stack);

@@ -1,7 +1,8 @@
 extends layout
 
 block content
-  for item in articles
+  for item in posts
     article
-      h2= item.title
-      .preview= item.preview
+      - var ref = "post/" + item._id
+      a(href=ref)= item.title
+      .preview= item.content

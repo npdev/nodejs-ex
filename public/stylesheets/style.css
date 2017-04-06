@@ -51,7 +51,10 @@ aside {
   aside.left {
     width: 23.72881%;
     float: left;
-    margin-right: 1.69492%; }
+    margin-right: 1.69492%;
+    text-align: center; }
+    aside.left a {
+      display: block; }
   aside.right {
     width: 15.25424%;
     float: right;
@@ -86,6 +89,7 @@ footer {
 article {
   position: relative;
   background: white;
+  background: #f4f4f4;
   padding: 10px;
   margin-bottom: 15px; }
   article:before {

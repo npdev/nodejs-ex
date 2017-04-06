@@ -64,6 +64,10 @@ aside {
   @include block;
   &.left {
     @include span(3 first);
+    text-align: center;
+    a{
+      display: block;
+    }
   }
   &.right {
     @include span(2 last);
@@ -86,6 +90,7 @@ footer {
 
 article {
   @include block;
+  background: #f4f4f4;
 
   padding: 10px;
   margin-bottom: 15px;
