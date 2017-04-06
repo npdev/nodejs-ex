@@ -1,12 +1,15 @@
 //  OpenShift sample Node application
 var express = require('express'),
+        morgan = require('morgan'),
         path = require('path');
 var app = express();
 
-Object.assign=require('object-assign');
+Object.assign = require('object-assign');
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+app.use(morgan('combined'));
+
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+        ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
 // Note: you must place sass-middleware *before* `express.static` or else it will
 // not work.
@@ -25,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var index = require('./routes/index');
 app.use('/', index);
-
+//app.use(require('./controllers'));
 // error handling
 app.use(function (err, req, res, next) {
   console.error(err.stack);
