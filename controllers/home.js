@@ -1,3 +1,4 @@
+'use strict';
 let router = new (require('express').Router)();
 const models = require('../models');
 
