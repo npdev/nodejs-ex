@@ -1,14 +1,16 @@
 [
-    {
-        "id": 0,
-        "name": "Oleksandr",
-        "preview": "Initial preview",
-        "text": "Initial text"
-    },
-    {
-        "id": 1,
-        "name": "Oleksandr",
-        "preview": "Initial preview",
-        "text": "Initial text"
-    }
+  {
+    "id": 0,
+    "name": "Oleksandr",
+    "title": "First record",
+    "preview": "Initial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial preview",
+    "text": "Initial text First record First record First record First record First record First record"
+  },
+  {
+    "id": 1,
+    "name": "Alter-Ego",
+    "title": "Second record",
+    "preview": "Initial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial previewInitial",
+    "text": "Initial text Second recordSecond recordSecond recordSecond recordSecond record"
+  }
 ]

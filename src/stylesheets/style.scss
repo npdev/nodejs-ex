@@ -1,10 +1,99 @@
 @import 'susy';
 
-// Susy in action
 $susy: (
 columns: 12,
 );
 
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin block{
+  position: relative;
+  background: white;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace;
+  }
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+html {
+  color: #000;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: gray;
+}
+
+.container {
+  @include container(960px);
+
+  height: 100%;
+  padding: 15px;
+}
+
+header {
+  @include block;
+
+  height: 15%;
+}
+
+.content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 70%;
+}
+
+aside {
+  @include block;
+  &.left {
+    @include span(3 first);
+  }
+  &.right {
+    @include span(2 last);
+  }
+  height: 100%;
+}
+
+main {
+  @include block;
+  padding: 15px;
+  @include span(7);
+  height: 100%;
+}
+
+footer {
+  @include block;
+
+  height: 15%;
+}
+
+article {
+  @include block;
+
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+
+
+/*
 .container {
   @include container(960px);
 }
@@ -19,14 +108,12 @@ aside {
   height: 100%;
 }
 
-main {
-  @include span(7);
-  height: 100%;
-}
-
 article {
-  @include gallery(1 of 3);
+  //@extend %clearfix;
+  @include span(7);
+  width: 100%;
   height: calc(50% - 7px);
+  background: white;
 }
 
 // media-queries
@@ -64,75 +151,5 @@ article {
   }
 }
 
-@mixin block{
-  position: relative;
-  background: white;
+*/
 
-  &:before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 25px;
-    font-family: Monaco, monospace;
-  }
-}
-
-*, *:after, *:before {
-  box-sizing: border-box;
-}
-
-html {
-  color: #000;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  background: gray;
-  //@include background-carbon-fibre;
-}
-
-.container {
-  @include block;
-
-  height: 100%;
-  padding: 15px;
-}
-
-header {
-  @include block;
-
-  height: 15%;
-}
-
-.content {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  height: 70%;
-}
-
-aside {
-  @include block;
-  //@include block('aside');
-}
-
-main {
-  @include block;
-
-  padding: 15px;
-}
-
-footer {
-  @include block;
-
-  height: 15%;
-}
-
-article {
-  @include block;
-
-  padding: 10px;
-  margin-bottom: 15px;
-}
