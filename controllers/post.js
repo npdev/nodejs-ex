@@ -12,7 +12,7 @@ router.post('/post', function (req, res, next)
   console.log(req.body);
   post.save()
           .then(() => {
-            res.redirect('/post/' + post._id);
+            res.redirect('/');//'/post/' + post._id);
           }).catch(next);
 });
 //

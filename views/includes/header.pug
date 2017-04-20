@@ -1,0 +1,30 @@
+nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+  .container-fluid
+    .navbar-header.page-scroll
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+        span.sr-only Toggle navigation
+          = 'Menu'
+        i.fa.fa-bars
+      a.navbar-brand(href='/') Home
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        if (!user)
+          li
+            a(href='/login') Sign in
+          li
+            a(href='/register') Sign up
+        else
+          li
+            a(href='/logout') Logout
+        li
+          a(href='/blog') Blog
+        li
+          a(href='/about') About
+header.intro-header(style="background-image: url('img/home-bg.jpg')")
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          h1 Website on Node.js
+          hr.small
+          span.subheading A Test Website on Node.js & Express.js & MongoDB

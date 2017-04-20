@@ -1,0 +1,160 @@
+*, *:after, *:before {
+  box-sizing: border-box; }
+
+html {
+  color: #000;
+  height: 100%; }
+
+body {
+  height: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: gray; }
+
+.container {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  padding: 15px; }
+  .container:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+header {
+  position: relative;
+  background: white;
+  height: 15%; }
+  header:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace; }
+
+.content {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 70%; }
+
+aside {
+  position: relative;
+  background: white;
+  height: 100%; }
+  aside:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace; }
+  aside.left {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    text-align: center; }
+    aside.left a {
+      display: block; }
+  aside.right {
+    width: 15.25424%;
+    float: right;
+    margin-right: 0; }
+
+main {
+  position: relative;
+  background: white;
+  padding: 15px;
+  width: 57.62712%;
+  float: left;
+  margin-right: 1.69492%;
+  height: 100%; }
+  main:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace; }
+
+footer {
+  position: relative;
+  background: white;
+  height: 15%; }
+  footer:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace; }
+
+article {
+  position: relative;
+  background: white;
+  background: #f4f4f4;
+  padding: 10px;
+  margin-bottom: 15px; }
+  article:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 25px;
+    font-family: Monaco, monospace; }
+
+/*
+.container {
+  @include container(960px);
+}
+
+aside {
+  &.left {
+    @include span(3 first);
+  }
+  &.right {
+    @include span(2 last);
+  }
+  height: 100%;
+}
+
+article {
+  //@extend %clearfix;
+  @include span(7);
+  width: 100%;
+  height: calc(50% - 7px);
+  background: white;
+}
+
+// media-queries
+@media (max-width: 800px) {
+  article {
+    @include gallery(1 of 2);
+    height: calc(33% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  aside.right {
+    display: none;
+  }
+
+  aside.left {
+    @include span(4 first);
+  }
+
+  main {
+    @include span(8 last);
+  }
+}
+
+@media (max-width: 500px) {
+  aside.left {
+    height: 20%;
+    margin-bottom: 15px;
+    @include span(full);
+  }
+
+  main {
+    @include span(full);
+    height: calc(80% - 15px);
+  }
+}
+
+*/

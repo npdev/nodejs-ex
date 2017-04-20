@@ -1,0 +1,17 @@
+extends layout_admin
+
+block content
+  h1= title
+  p Welcome to #[em Блог], a very basic Express website.
+
+
+  h1 Блог content
+
+  if error
+    p Error getting dynamic content.
+  else
+
+    p Number of users:
+
+    ul
+      li #[strong User:] !{data.usersCount}

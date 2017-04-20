@@ -1,8 +1,0 @@
-extends layout
-
-block content
-  for item in posts
-    article
-      - var ref = "post/" + item._id
-      a(href=ref)= item.title
-      .preview= item.content

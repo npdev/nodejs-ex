@@ -1,23 +1,22 @@
 'use strict';
 
 var mongoose = require('mongoose');
-//const URLSlugs = require('mongoose-url-slugs');
 var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
   title: {
     type: [String, "unapropriate type"],
     required: [true, "title Required"],
-    unique: [true, "title must be unique"]
+    unique: [true, "title must be unique"],
+    validate: /\S+/
   },
   content: {
     type: [String, "unapropriate type"],
-    required: [true, "text Required"]
+    required: [true, "text Required"],
+    validate: /\S+/
   },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
+  created_at: {type: Date, default: Date.now},
+  updated_at: {type: Date, default: Date.now},
   status: {
     type: [{
         type: String,
@@ -25,10 +24,14 @@ var PostSchema = new Schema({
       }],
     default: ['active']
   },
-  slug: String
+  slug: String,
+  author: [{type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}]
 });
 
-// Подключим генератор на основе названия
-//PostSchema.plugin(URLSlugs('title'));
+PostSchema
+        .virtual('url')
+        .get(function () {
+          return '/post/' + this._id;
+        });
 
 module.exports = mongoose.model('Post', PostSchema);
